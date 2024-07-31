@@ -53,6 +53,24 @@ function RemoveDuplicates(value) {
   return uniqueArray;
 }
 
-console.log(SortFuntion([1, 3, -1, 11, 10, 2, 1, 4]));
+function arrayObjectvalue(value) {
+  //   for (let i = 0; i < value.length; i++) {
+  //     console.log(value[i]["a"]);
+  //   }
 
-console.log(RemoveDuplicates([1, 1, -1, 2, 33, 3, 33]));
+  value.map((value) => {
+    console.log(value.a);
+  });
+}
+
+// console.log(SortFuntion([1, 3, -1, 11, 10, 2, 1, 4]));
+
+// console.log(RemoveDuplicates([1, 1, -1, 2, 33, 3, 33]));
+
+console.log(
+  arrayObjectvalue([
+    { a: 1, b: 2, c: 3 },
+    { a: 3, b: 6, c: 9 },
+    { a: 5, b: 10, c: 15 },
+  ])
+);
