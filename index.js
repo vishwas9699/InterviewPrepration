@@ -88,6 +88,12 @@ Follow up: Can you come up with an algorithm that runs in O(m + n) time?
 
 */
 
+/*
+function merge(nums1, m, nums2, n) {
+  nums1.splice(m, n, ...nums2);
+  nums1.sort((a, b) => a - b);
+}
+*/
 function merge(nums1, m, nums2, n) {
   let n1 = [];
   for (let i = 0; i < m; i++) {
@@ -169,3 +175,17 @@ function removeDuplicates(val) {
   console.log(result);
 }
 // removeDuplicates([0, 0, 1, 1, 1, 4, 2, 2, 3, 3]);
+
+/*---------------------------------------------------------------------------*/
+
+// Capitalize and Space between a String (contact_details)
+
+function test(value) {
+  var val = value
+    .split("_")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+  console.log(val);
+}
+
+// test("contact_details");
