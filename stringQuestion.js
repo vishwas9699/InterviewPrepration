@@ -50,10 +50,51 @@ function findPalindromes(input) {
     }
   }
 
-  // Check for palindromes of length 5
-
   return count;
 }
+
+/* 
+
+why we are taking input.length-4 here we can take 5 also right can u please explain
+
+
+Great question! Let's break down why we're using `input.length - 4` instead of `input.length - 5` in the loop condition.
+
+### Loop Explanation
+
+The loop is designed to iterate over all possible starting positions for 4-character and 5-character substrings within the input string. Here's the reasoning:
+
+- **`i <= input.length - 4`:**  
+  This condition ensures that the loop can generate a 4-character substring starting from position `i`. If `i` were greater than `input.length - 4`, then `input.slice(i, i + 4)` would exceed the bounds of the string.
+
+### Example: 
+
+Suppose `inputString = "abcdefg"` with a length of 7.
+
+- If `i = 3`, then:
+  - `input.slice(3, 3 + 4)` gives you `"defg"` (valid 4-character substring).
+  - `input.slice(3, 3 + 5)` gives you `"defg"` plus one more character if available.
+
+- If `i = 4`, then:
+  - `input.slice(4, 4 + 4)` gives you `"efg"`, which isn't a 4-character string anymore (invalid).
+  - `input.slice(4, 4 + 5)` would also be out of bounds for a 5-character substring.
+
+So, the loop goes up to `input.length - 4` to ensure it can at least extract a valid 4-character substring.
+
+### Could We Use `input.length - 5` Instead?
+
+If we used `i <= input.length - 5`, we'd miss checking the final valid 4-character substring:
+
+- **Continuing the example above:**  
+  If `input.length - 5 = 2`, the loop would stop at `i = 2`, and we wouldn't check the substring `"defg"` starting from `i = 3`.
+
+### Final Summary:
+
+- **`input.length - 4`:** Ensures that the loop can check all potential 4-character substrings.
+- **Within the loop:** We also check for 5-character substrings, but only if the current index `i` allows for a 5-character substring (`i <= input.length - 5`).
+
+This approach guarantees that both 4-character and 5-character palindromes are correctly identified without missing any potential matches.
+*/
 
 // Example usage
 const inputString = "abccbaabbccddeed";
